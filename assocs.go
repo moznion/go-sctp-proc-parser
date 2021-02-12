@@ -4,12 +4,9 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"regexp"
 	"strconv"
 	"strings"
 )
-
-var spacesRe = regexp.MustCompile("[ ]+")
 
 var (
 	ErrInsufficientNumberOfAssocItems = errors.New("insufficient number of assoc items on a line")
@@ -29,8 +26,8 @@ type Assoc struct {
 	RxQueue int64
 	Uid     uint64
 	Inode   uint64
-	Lport   int64
-	Rport   int64
+	LPort   int64
+	RPort   int64
 	LAddrs  []string
 	RAddrs  []string
 	Hbint   uint64
@@ -218,8 +215,8 @@ func ParseAssocs(input *bufio.Scanner, noHeader ...bool) ([]*Assoc, error) {
 			RxQueue: rxQueue,
 			Uid:     uid,
 			Inode:   inode,
-			Lport:   lport,
-			Rport:   rport,
+			LPort:   lport,
+			RPort:   rport,
 			LAddrs:  laddrs,
 			RAddrs:  raddrs,
 			Hbint:   hbint,
