@@ -1,4 +1,4 @@
-# go-sctp-proc-parser
+# go-sctp-proc-parser ![Go](https://github.com/moznion/go-sctp-proc-parser/workflows/Go/badge.svg) [![Go Reference](https://pkg.go.dev/badge/github.com/moznion/go-sctp-proc-parser.svg)](https://pkg.go.dev/github.com/moznion/go-sctp-proc-parser)
 
 A parser for `/proc/net/sctp/*` files.
 
