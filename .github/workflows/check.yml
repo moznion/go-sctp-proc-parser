@@ -17,5 +17,5 @@ jobs:
       with:
         version: v1.36
     - name: Do test
-      run: make check
+      run: make check-ci
 

@@ -1,6 +1,7 @@
 PKGS := $(shell go list ./...)
 
 check: fmt-check test lint vet
+check-ci: fmt-check test vet
 
 test:
 	go test -v $(PKGS)
