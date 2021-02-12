@@ -30,3 +30,27 @@ func main() {
 }
 ```
 
+### Parse `/proc/net/sctp/eps`
+
+```go
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"strings"
+
+	"github.com/moznion/go-sctp-proc-parser"
+)
+
+func main() {
+	input := `ENDPT     SOCK   STY SST HBKT LPORT   UID INODE LADDRS
+0        0 2   10  24   12345     0 227065 127.0.0.1
+0        0 2   10  16   54321     0 232851 127.0.0.3
+`
+	assocs, err := parser.ParseEPS(bufio.NewScanner(strings.NewReader(input)))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%v\n", assocs)
+```
+
