@@ -54,3 +54,29 @@ func main() {
 	fmt.Printf("%v\n", assocs)
 ```
 
+### Parse `/proc/net/sctp/remaddr`
+
+```go
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"strings"
+
+	"github.com/moznion/go-sctp-proc-parser"
+)
+
+func main() {
+	input := `ADDR ASSOC_ID HB_ACT RTO MAX_PATH_RTX REM_ADDR_RTX START STATE
+127.0.0.10  69 1 1000 5 0 0 2
+127.0.0.20  69 1 3000 5 0 0 3
+127.0.0.1  68 1 1000 5 0 0 2
+127.0.0.2  68 1 3000 5 0 0 2
+`
+	assocs, err := parser.ParseRemaddr(bufio.NewScanner(strings.NewReader(input)))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%v\n", assocs)
+```
+
