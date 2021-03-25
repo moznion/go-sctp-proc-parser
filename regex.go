@@ -2,4 +2,4 @@ package parser
 
 import "regexp"
 
-var spacesRe = regexp.MustCompile("[ ]+")
+var spacesRe = regexp.MustCompile("[ \t]+")
